@@ -1,0 +1,36 @@
+<h1>Todos</h1>
+
+<!-- totods$ | async will subscribe to the observable and make
+ any emitted array value available for ngFor  -->
+<div *ngFor="let todoGroup of todoGroup$ | async">
+	<!--<p>{{todoGroup.title}}</p><b>This is here</b>-->
+	<ul class="list-group">
+		
+	</ul>
+	<!-- <button (click)="delete(todo)">delete</button> -->
+</div>
+<div *ngFor="let todo of todo$ | async"> 
+   <li class="list-group-item" >
+       {{todo.title}}
+		</li> 
+</div>
+<div class="blog-content">
+	<h3><b>Blog Comment</b></h3>
+	<textarea
+          ng-model="my-blog-text"
+          cols="30"
+          rows="5"
+          placeholder="Your Comment here"
+          #content
+        ></textarea>
+</div>
+
+<button
+        class="button"
+        mat-stroked-button
+        (click)="addTodo()"
+      >
+        Submit Blog
+      </button>
+
+<button (click)="addTodoGroup()">New todo</button>
