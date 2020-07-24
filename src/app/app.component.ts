@@ -17,7 +17,7 @@ import { tap } from "rxjs/operators";
 export class AppComponent implements OnInit {
   todoGroup$: Observable<TodoGroup[]>;
   todo$: Observable<Todo[]>;
-
+  
   constructor(private todoGroupQuery: TodoGroupQuery, private todoGroupService: TodoGroupService,private todoQuery:TodoQuery, private todoService:TodoService) {}
 
   ngOnInit() {
