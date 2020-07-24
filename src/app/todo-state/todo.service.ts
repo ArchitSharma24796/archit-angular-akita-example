@@ -8,7 +8,6 @@ import { Todo, TodoGroup } from "./todo.model";
 export class TodoService {
   constructor(private store: TodoStore) {}
 
-
   addTodo(todo: Todo ){
     this.store.add(todo);
   }

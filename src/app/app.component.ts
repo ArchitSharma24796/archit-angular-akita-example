@@ -1,8 +1,8 @@
 import { Component, VERSION, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { TodoGroup, Todo } from "./todo-state/todo.model";
-import { TodoQuery } from "./todo-state/todoGroup.query";
-import { TodoService } from "./todo-state/todoGroup.service";
+import { TodoGroupQuery } from "./todo-state/todoGroup.query";
+import { TodoGroupService } from "./todo-state/todoGroup.service";
 import { uuid } from 'uuidv4';
 import { tap } from "rxjs/operators";
 
@@ -16,11 +16,11 @@ export class AppComponent implements OnInit {
   todoGroup$: Observable<TodoGroup[]>;
   todo$: Observable<Todo[]>;
 
-  constructor(private todoQuery: TodoQuery, private todoService: TodoService) {}
+  constructor(private todoGroupQuery: TodoGroupQuery, private todoGroupService: TodoGroupService) {}
 
   ngOnInit() {
     // retrieve all Todo objects from the store
-    this.todoGroup$ = this.todoQuery.selectAll().pipe(
+    this.todoGroup$ = this.todoGroupQuery.selectAll().pipe(
       // tap into the stream and log out any given value for debugging
      
     )
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
     };
 
     // Call the service to add the TodoGroup object
-    this.todoService.add(todoGroup);
+    this.todoGroupService.add(todoGroup);
   }
 
   addTodo(){
@@ -50,10 +50,10 @@ export class AppComponent implements OnInit {
       completed: false
     }
     
-    this.todoService.addTodo(todo);
+   // this.todoService.addTodo(todo);
   }
 
   delete(todoGroup: TodoGroup) {
-    this.todoService.delete(todoGroup);
+    this.todoGroupService.delete(todoGroup);
   }
 }
