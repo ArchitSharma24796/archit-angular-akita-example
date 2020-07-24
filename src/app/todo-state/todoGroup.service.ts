@@ -1,4 +1,4 @@
-import { TodoStore } from "./todo.store";
+import { TodoStore } from "./todoGroup.store";
 import { Injectable } from "@angular/core";
 import { Todo, TodoGroup } from "./todo.model";
 

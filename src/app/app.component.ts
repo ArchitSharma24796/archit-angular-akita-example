@@ -1,8 +1,8 @@
 import { Component, VERSION, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { TodoGroup, Todo } from "./todo-state/todo.model";
-import { TodoQuery } from "./todo-state/todo.query";
-import { TodoService } from "./todo-state/todo.service";
+import { TodoQuery } from "./todo-state/todoGroup.query";
+import { TodoService } from "./todo-state/todoGroup.service";
 import { uuid } from 'uuidv4';
 import { tap } from "rxjs/operators";
 

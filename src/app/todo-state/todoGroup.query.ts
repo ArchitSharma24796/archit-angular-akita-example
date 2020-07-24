@@ -1,6 +1,6 @@
 import { QueryEntity } from '@datorama/akita';
-import { TodoState } from './todo.store';
-import { TodoStore } from './todo.store';
+import { TodoState } from './todoGroup.store';
+import { TodoStore } from './todoGroup.store';
 import { Injectable } from '@angular/core';
 
 @Injectable({
