@@ -3,6 +3,8 @@ import { Observable } from "rxjs";
 import { TodoGroup, Todo } from "./todo-state/todo.model";
 import { TodoGroupQuery } from "./todo-state/todoGroup.query";
 import { TodoGroupService } from "./todo-state/todoGroup.service";
+import { TodoQuery } from "./todo-state/todo.query";
+import { TodoService } from "./todo-state/todo.service";
 import { uuid } from 'uuidv4';
 import { tap } from "rxjs/operators";
 
@@ -16,7 +18,7 @@ export class AppComponent implements OnInit {
   todoGroup$: Observable<TodoGroup[]>;
   todo$: Observable<Todo[]>;
 
-  constructor(private todoGroupQuery: TodoGroupQuery, private todoGroupService: TodoGroupService) {}
+  constructor(private todoGroupQuery: TodoGroupQuery, private todoGroupService: TodoGroupService,private todoQuery:TodoQuery, private todoService:TodoService) {}
 
   ngOnInit() {
     // retrieve all Todo objects from the store
@@ -50,7 +52,7 @@ export class AppComponent implements OnInit {
       completed: false
     }
     
-   // this.todoService.addTodo(todo);
+     this.todoService.addTodo(todo);
   }
 
   delete(todoGroup: TodoGroup) {
