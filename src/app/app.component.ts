@@ -26,9 +26,8 @@ export class AppComponent implements OnInit {
       // tap into the stream and log out any given value for debugging
      
     )
-    //this.todo$ = this.todoQuery.selectAll().pipe(
-      // tap(value => console.log(value))
-    //)
+    this.todo$ = this.todoQuery.selectAll();
+     
   }
 
   addTodoGroup() {

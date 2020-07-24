@@ -1,6 +1,6 @@
 import { TodoStore } from "./todo.store";
 import { Injectable } from "@angular/core";
-import { Todo, TodoGroup } from "./todo.model";
+import { Todo} from "./todo.model";
 
 @Injectable({
   providedIn: "root"
