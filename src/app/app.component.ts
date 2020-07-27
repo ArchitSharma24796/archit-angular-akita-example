@@ -17,6 +17,8 @@ import { tap } from "rxjs/operators";
 export class AppComponent implements OnInit {
   todoGroup$: Observable<TodoGroup[]>;
   todo$: Observable<Todo[]>;
+  public todoG;
+  public todoId = Array();
   
   constructor(private todoGroupQuery: TodoGroupQuery, private todoGroupService: TodoGroupService,private todoQuery:TodoQuery, private todoService:TodoService) {}
 
@@ -35,22 +37,22 @@ export class AppComponent implements OnInit {
     const todoGroup: TodoGroup = {
       id: uuid(),
       title: 'Untitled',
-      //todos: string[]
+      todos: this.todoId 
     };
-
+    this.todoG = todoGroup.id;
     // Call the service to add the TodoGroup object
     this.todoGroupService.add(todoGroup);
   }
 
-  addTodo(){
+  addTodo(content: HTMLTextAreaElement){
     //create a new Todo object, with empty interface
     const todo: Todo = {
       id:uuid(),
-      title: 'test Comment',
-      todoGroup:'ABCD',
+      title: content.value,
+      todoGroup:this.todoG,
       completed: false
     }
-    
+    this.todoId.push(todo.id);
      this.todoService.addTodo(todo);
   }
 
